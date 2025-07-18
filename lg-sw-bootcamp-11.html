@@ -125,7 +125,7 @@
             margin-bottom: 20px;
             color: #4a5568;
             font-weight: 500;
-            border-left: 3px solid #D90429; /* LG Red */
+            border-left: 3px solid #f3a2b0; /* LG Red */
         }
 
         .toc ol {
@@ -148,13 +148,13 @@
         }
 
         .toc li:hover {
-            border-color: #D90429;
+            border-color: #f17b8f;
             background: #fff;
         }
 
         .toc li::before {
             content: counter(toc-counter);
-            background: #D90429; /* LG Red */
+            background: #f17b8f; /* LG Red */
             color: white;
             border-radius: 6px;
             width: 24px;
@@ -213,75 +213,49 @@
             color: #4a5568;
         }
 
-        .highlight {
-            background: #fffaf0;
+        .target-info, .deadline, .note, .important, .highlight {
             padding: 16px;
             border-radius: 6px;
             margin: 16px 0;
-            border-left: 3px solid #f6e05e;
-        }
-
-        .link-button {
-            display: inline-flex;
-            align-items: center;
-            background: #D90429; /* LG Red */
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            margin: 8px 8px 8px 0;
-            transition: all 0.2s ease;
-            font-weight: 600;
-            font-size: 0.875rem;
-            border: 1px solid #D90429;
-        }
-
-        .link-button:hover {
-            background: #a7001e;
-            border-color: #a7001e;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            color: white;
-            text-decoration: none;
+            border-left-width: 3px;
+            border-left-style: solid;
         }
 
         .target-info {
-            background: #fed7d7;
-            padding: 16px;
-            border-radius: 6px;
-            margin: 16px 0;
-            color: #9b2c2c;
-            font-weight: 500;
-            border-left: 3px solid #c53030;
+            background: #ebf8ff;
+            border-color: #90cdf4;
+            color: #2c5282;
         }
 
         .deadline {
-            background: #fed7d7;
-            color: #c53030;
-            padding: 8px 16px;
-            border-radius: 9999px;
-            display: inline-block;
-            font-weight: 600;
-            margin: 8px 0;
-            font-size: 0.875rem;
+            background: #fffaf0;
+            border-color: #f6e05e;
+            color: #b7791f;
         }
 
         .note {
-            background: #fffaf0;
-            border: 1px solid #fefcbf;
-            padding: 16px;
-            border-radius: 6px;
-            margin: 16px 0;
-            color: #744210;
+            background: #f7f8fa;
+            border-color: #e2e8f0;
+            color: #4a5568;
         }
 
         .important {
             background: #fed7d7;
-            border: 1px solid #fbb6b6;
-            padding: 16px;
-            border-radius: 6px;
-            margin: 16px 0;
-            color: #c53030;
+            border-color: #fbb6b6;
+            color: #f17b8f;
+        }
+
+        .highlight {
+            background: #ebf8ff;
+            border-color: #90cdf4;
+        }
+
+        .meta-info {
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+        .meta-info strong {
+            color: #1a202c;
         }
 
         ul {
@@ -292,6 +266,30 @@
         li {
             margin-bottom: 6px;
             color: #4a5568;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            background: #f17b8f; /* LG Red */
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 8px 8px 8px 0;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid #f17b8f;
+        }
+
+        .link-button:hover {
+            background: #f17b8f;
+            border-color: #f17b8f;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            color: white;
+            text-decoration: none;
         }
 
         .completion-button {
@@ -354,6 +352,9 @@
 
             <div class="toc">
                 <h2>📋 목차</h2>
+                <div class="toc-note">
+                    ※ 목차에 따라 사전 준비 4가지를 모두 완료하신 분은 아래 Like 버튼 또는 댓글로 '<strong>완료!</strong>' 남겨주세요~~
+                </div>
                 <ol>
                     <li>교육생 사전 설문 (~7/22)</li>
                     <li>출퇴근 거리 사전 설문 (~7/25)</li>
@@ -365,85 +366,63 @@
 
         <div class="section">
             <h2 data-number="1">교육생 사전 설문</h2>
-            <div class="deadline">📅 마감: 7월 22일 (월)</div>
-            <div class="target-info">
-                <strong>대상:</strong> 교육생 전원 (7월 22일, 월요일까지 완료)
-            </div>
+            <p class="meta-info"><strong>📅 마감:</strong> 7월 22일 (월)</p>
+            <p class="meta-info"><strong>👤 대상:</strong> 교육생 전원</p>
             <p>약 1분 소요되는 간단한 설문이니 7/22까지 꼭! 작성 부탁드립니다.</p>
             <a href="https://moaform.com/q/bzxqsw" target="_blank" class="link-button">📝 설문조사 참여하기 (모아폼)</a>
         </div>
 
         <div class="section">
             <h2 data-number="2">출퇴근 거리 사전 설문</h2>
-            <div class="deadline">📅 마감: 7월 25일 (금)</div>
-            <div class="target-info">
-                <strong>대상:</strong> 교육생 전원 (7월 25일, 금요일까지 완료)
-            </div>
+            <p class="meta-info"><strong>📅 마감:</strong> 7월 25일 (금)</p>
+            <p class="meta-info"><strong>👤 대상:</strong> 교육생 전원</p>
             
             <a href="https://naver.me/5gY6mR0P" target="_blank" class="link-button">📝 설문조사 참여하기 (네이버)</a>
             <a href="#" class="link-button">🗺️ 거리 측정하기 (네이버 지도)</a>
 
-            <div class="note">
-                <h3>📌 주의사항</h3>
-                <ul>
-                    <li>로그인 필수</li>
-                    <li>이미지 업로드 정책으로 인해 사내에서 진행 시, 링크를 팀즈로 보내신 후 <strong>모바일로 작성</strong>해주시길 바랍니다.</li>
-                    <li>사내 설문시스템이 이미지 업로드가 불가하여 해당 방법으로 진행하니 양해 부탁드립니다.</li>
-                    <li><strong>거리 측정 기준:</strong> "도보" 결과 중 "가장빠른" 경로 기준</li>
-                </ul>
-            </div>
+            <h3>📌 주의사항</h3>
+            <ul>
+                <li>로그인 필수</li>
+                <li>이미지 업로드 정책으로 인해 사내에서 진행 시, 링크를 팀즈로 보내신 후 <strong>모바일로 작성</strong>해주시길 바랍니다.</li>
+                <li>사내 설문시스템이 이미지 업로드가 불가하여 해당 방법으로 진행하니 양해 부탁드립니다.</li>
+                <li><strong>거리 측정 기준:</strong> "도보" 결과 중 "가장빠른" 경로 기준</li>
+            </ul>
 
-            <div class="highlight">
-                <strong>📍 측정 목적:</strong> 거주지의 재근지 여부를 파악하기 위해서 최단 거리 정보 취합이 필요합니다.
-            </div>
+            <p><strong>📍 측정 목적:</strong> 거주지의 재근지 여부를 파악하기 위해서 최단 거리 정보 취합이 필요합니다.</p>
         </div>
 
         <div class="section">
             <h2 data-number="3">HRD-NET 출결 사전준비</h2>
-            <div class="deadline">📅 마감: 8월 20일 (교육 입소일 전까지)</div>
-            <div class="target-info">
-                <strong>대상:</strong> 교육생 전원
-            </div>
+            <p class="meta-info"><strong>📅 마감:</strong> 8월 20일 (교육 입소일 전까지)</p>
+            <p class="meta-info"><strong>👤 대상:</strong> 교육생 전원</p>
             
             <p>하기 안내에 따라 필수로 HRD-Net 가입 및 어플 설치를 완료해주세요.</p>
             
-            <div class="important">
-                <strong>📄 [★필독]</strong> HRD-NET 출결사전준비_비콘.pdf 파일을 참고하여 진행해주세요.
-            </div>
+            <p style="color: #c53030; font-weight: 600; margin-top: 16px;"><strong>📄 [★필독]</strong> HRD-NET 출결사전준비_비콘.pdf 파일을 참고하여 진행해주세요.</p>
         </div>
 
         <div class="section">
             <h2 data-number="4">교육 전 기본 역량 준비 - 사전 온라인 과정</h2>
-            <div class="deadline">📅 마감: 8월 15일 (금)</div>
+            <p class="meta-info"><strong>📅 마감:</strong> 8월 15일 (금)</p>
             
-            <div class="important">
-                <h3>🎯 이수 기준: 100% 문제 풀이 완료</h3>
-                <p>(전체 내용을 이해하고 본인 것으로 만드셔야 합니다.)</p>
-            </div>
+            <h3>🎯 이수 기준: 100% 문제 풀이 완료</h3>
+            <p>(전체 내용을 이해하고 본인 것으로 만드셔야 합니다.)</p>
+            
+            <p style="margin-top: 16px;">사전 온라인 과정은 현업과 병행해야 하고 학습량도 적지 않으므로 <strong>바로 시작하는 것을 권장</strong>합니다.</p>
 
-            <div class="note">
-                <p>사전 온라인 과정은 현업과 병행해야 하고 학습량도 적지 않으므로 <strong>바로 시작하는 것을 권장</strong>합니다.</p>
-            </div>
-
-            <div class="highlight">
-                <h3>🖥️ 실습 진행 방법</h3>
-                <ol>
-                    <li><strong>실습 사이트:</strong> <a href="https://www.codexpert.ac/" target="_blank">https://www.codexpert.ac/</a></li>
-                    <li>사내 이메일로 회원가입 후 로그인</li>
-                    <li>로그인 후 (우상단) 마이페이지 > 등록된 문제해결 과정 클릭!</li>
-                </ol>
-            </div>
+            <h3>🖥️ 실습 진행 방법</h3>
+            <ol style="margin-left: 24px; margin-top: 8px;">
+                <li><strong>실습 사이트:</strong> <a href="https://www.codexpert.ac/" target="_blank" style="color: #D90429; font-weight: 600;">https://www.codexpert.ac/</a></li>
+                <li>사내 이메일로 회원가입 후 로그인</li>
+                <li>로그인 후 (우상단) 마이페이지 > 등록된 문제해결 과정 클릭!</li>
+            </ol>
 
             <a href="https://www.codexpert.ac/" target="_blank" class="link-button">💻 CodeExpert 바로가기</a>
 
-            <div class="note">
-                <p><strong>💡 추가 학습:</strong> 기초 프로그래밍 과정 학습이 필요하신 분은 LG Udemy를 활용하실 수 있습니다.</p>
-            </div>
-
-            <div class="important">
-                <p><strong>⚠️ 중요:</strong> 사전 온라인 과정은 현업 병행입니다.</p>
-                <p><strong>📅 사전 과정 기간:</strong> ~ 8/15(금)</p>
-            </div>
+            <p style="margin-top: 16px;"><strong>💡 추가 학습:</strong> 기초 프로그래밍 과정 학습이 필요하신 분은 LG Udemy를 활용하실 수 있습니다.</p>
+            
+            <p style="color: #c53030; font-weight: 600; margin-top: 16px;"><strong>⚠️ 중요:</strong> 사전 온라인 과정은 현업 병행입니다.</p>
+            <p style="color: #c53030; font-weight: 600;"><strong>📅 사전 과정 기간:</strong> ~ 8/15(금)</p>
         </div>
     </div>
 
