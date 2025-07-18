@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LG SW Bootcamp 11기 사전 준비 안내</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: #f7f8fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+            padding: 48px 32px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #1a202c;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header h2 {
+            color: #718096;
+            font-size: 1.125rem;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .warning-section {
+            background: #fffaf0;
+            border: 1px solid #f6e05e;
+            padding: 20px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+        }
+
+        .warning-section h2 {
+            color: #b7791f;
+            margin-bottom: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .warning-section p {
+            color: #b7791f;
+            margin-bottom: 8px;
+        }
+
+        .info-section {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            padding: 20px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+        }
+
+        .info-section h2 {
+            color: #2c5282;
+            margin-bottom: 12px;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .info-section p {
+            color: #2c5282;
+            margin-bottom: 8px;
+        }
+
+        .info-section a {
+            color: #2c5282;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .toc {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .toc h2 {
+            color: #1a202c;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .toc-note {
+            background: #f7f8fa;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            color: #4a5568;
+            font-weight: 500;
+            border-left: 3px solid #D90429; /* LG Red */
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            display: grid;
+            gap: 12px;
+        }
+
+        .toc li {
+            counter-increment: toc-counter;
+            padding: 16px;
+            background: #f7f8fa;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .toc li:hover {
+            border-color: #D90429;
+            background: #fff;
+        }
+
+        .toc li::before {
+            content: counter(toc-counter);
+            background: #D90429; /* LG Red */
+            color: white;
+            border-radius: 6px;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .section {
+            margin-bottom: 32px;
+            padding: 32px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .section h2 {
+            color: #1a202c;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: attr(data-number);
+            background: #2d3748;
+            color: white;
+            border-radius: 6px;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .section h3 {
+            color: #2d3748;
+            margin: 16px 0 12px 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+
+        .highlight {
+            background: #fffaf0;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+            border-left: 3px solid #f6e05e;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            background: #D90429; /* LG Red */
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 8px 8px 8px 0;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: 1px solid #D90429;
+        }
+
+        .link-button:hover {
+            background: #a7001e;
+            border-color: #a7001e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            color: white;
+            text-decoration: none;
+        }
+
+        .target-info {
+            background: #fed7d7;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+            color: #9b2c2c;
+            font-weight: 500;
+            border-left: 3px solid #c53030;
+        }
+
+        .deadline {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 8px 0;
+            font-size: 0.875rem;
+        }
+
+        .note {
+            background: #fffaf0;
+            border: 1px solid #fefcbf;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+            color: #744210;
+        }
+
+        .important {
+            background: #fed7d7;
+            border: 1px solid #fbb6b6;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+            color: #c53030;
+        }
+
+        ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: #4a5568;
+        }
+
+        .completion-button {
+            background: #38a169;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 16px 0;
+            transition: all 0.2s ease;
+        }
+
+        .completion-button:hover {
+            background: #2f855a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            .header, .content, .section {
+                padding: 24px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>LG SW Bootcamp 11기</h1>
+            <h2 style="color: #6c757d; margin-top: 10px;">사전 준비 안내</h2>
+        </div>
+
+        <div class="content">
+            <div class="warning-section">
+                <h2>🚨 교육 취소 및 변경 안내</h2>
+                <p><strong>수강 취소 기간이 지난 이후에는 교육 취소 및 변경이 불가합니다.</strong> (Cancellation Fee 100% 부과)</p>
+                <p>해당 과정은 신입 교육 일정에 맞춰 <strong>입사 1년 ~ 1년 6개월 이내</strong>에 수강하는 것을 원칙으로 합니다.</p>
+            </div>
+
+            <div class="info-section">
+                <h2>📸 촬영 및 정보 동의 안내</h2>
+                <p>LG SW Bootcamp 교육생은 프로그램에 참가함에 있어 교육 현장의 홍보와 기록을 위해 <strong>사진 촬영 및 사용에 동의</strong>함으로 간주합니다.</p>
+                <p>해당 촬영물은 추후 LG전자 사내 게시판, <a href="https://youtube.com/@lgsw" target="_blank">Software in LG 유튜브 채널</a>에 게재될 수 있습니다.</p>
+            </div>
+
+            <div class="toc">
+                <h2>📋 목차</h2>
+                <ol>
+                    <li>교육생 사전 설문 (~7/22)</li>
+                    <li>출퇴근 거리 사전 설문 (~7/25)</li>
+                    <li>HRD-NET 출결 사전준비 (~8/20)</li>
+                    <li>교육 전 기본 역량 준비 - 사전 온라인 과정(~8/15)</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-number="1">교육생 사전 설문</h2>
+            <div class="deadline">📅 마감: 7월 22일 (월)</div>
+            <div class="target-info">
+                <strong>대상:</strong> 교육생 전원 (7월 22일, 월요일까지 완료)
+            </div>
+            <p>약 1분 소요되는 간단한 설문이니 7/22까지 꼭! 작성 부탁드립니다.</p>
+            <a href="https://moaform.com/q/bzxqsw" target="_blank" class="link-button">📝 설문조사 참여하기 (모아폼)</a>
+        </div>
+
+        <div class="section">
+            <h2 data-number="2">출퇴근 거리 사전 설문</h2>
+            <div class="deadline">📅 마감: 7월 25일 (금)</div>
+            <div class="target-info">
+                <strong>대상:</strong> 교육생 전원 (7월 25일, 금요일까지 완료)
+            </div>
+            
+            <a href="https://naver.me/5gY6mR0P" target="_blank" class="link-button">📝 설문조사 참여하기 (네이버)</a>
+            <a href="#" class="link-button">🗺️ 거리 측정하기 (네이버 지도)</a>
+
+            <div class="note">
+                <h3>📌 주의사항</h3>
+                <ul>
+                    <li>로그인 필수</li>
+                    <li>이미지 업로드 정책으로 인해 사내에서 진행 시, 링크를 팀즈로 보내신 후 <strong>모바일로 작성</strong>해주시길 바랍니다.</li>
+                    <li>사내 설문시스템이 이미지 업로드가 불가하여 해당 방법으로 진행하니 양해 부탁드립니다.</li>
+                    <li><strong>거리 측정 기준:</strong> "도보" 결과 중 "가장빠른" 경로 기준</li>
+                </ul>
+            </div>
+
+            <div class="highlight">
+                <strong>📍 측정 목적:</strong> 거주지의 재근지 여부를 파악하기 위해서 최단 거리 정보 취합이 필요합니다.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-number="3">HRD-NET 출결 사전준비</h2>
+            <div class="deadline">📅 마감: 8월 20일 (교육 입소일 전까지)</div>
+            <div class="target-info">
+                <strong>대상:</strong> 교육생 전원
+            </div>
+            
+            <p>하기 안내에 따라 필수로 HRD-Net 가입 및 어플 설치를 완료해주세요.</p>
+            
+            <div class="important">
+                <strong>📄 [★필독]</strong> HRD-NET 출결사전준비_비콘.pdf 파일을 참고하여 진행해주세요.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 data-number="4">교육 전 기본 역량 준비 - 사전 온라인 과정</h2>
+            <div class="deadline">📅 마감: 8월 15일 (금)</div>
+            
+            <div class="important">
+                <h3>🎯 이수 기준: 100% 문제 풀이 완료</h3>
+                <p>(전체 내용을 이해하고 본인 것으로 만드셔야 합니다.)</p>
+            </div>
+
+            <div class="note">
+                <p>사전 온라인 과정은 현업과 병행해야 하고 학습량도 적지 않으므로 <strong>바로 시작하는 것을 권장</strong>합니다.</p>
+            </div>
+
+            <div class="highlight">
+                <h3>🖥️ 실습 진행 방법</h3>
+                <ol>
+                    <li><strong>실습 사이트:</strong> <a href="https://www.codexpert.ac/" target="_blank">https://www.codexpert.ac/</a></li>
+                    <li>사내 이메일로 회원가입 후 로그인</li>
+                    <li>로그인 후 (우상단) 마이페이지 > 등록된 문제해결 과정 클릭!</li>
+                </ol>
+            </div>
+
+            <a href="https://www.codexpert.ac/" target="_blank" class="link-button">💻 CodeExpert 바로가기</a>
+
+            <div class="note">
+                <p><strong>💡 추가 학습:</strong> 기초 프로그래밍 과정 학습이 필요하신 분은 LG Udemy를 활용하실 수 있습니다.</p>
+            </div>
+
+            <div class="important">
+                <p><strong>⚠️ 중요:</strong> 사전 온라인 과정은 현업 병행입니다.</p>
+                <p><strong>📅 사전 과정 기간:</strong> ~ 8/15(금)</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 부드러운 스크롤 효과
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 링크 클릭 시 새 탭에서 열기 확인
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const confirmOpen = confirm('외부 링크로 이동하시겠습니까?\n\n' + this.href);
+                if (!confirmOpen) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
